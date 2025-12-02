@@ -246,6 +246,11 @@ export default defineNuxtConfig({
 
       link: [
         {
+          rel: 'manifest',
+          href: '/manifest.webmanifest',
+          crossorigin: 'use-credentials',
+        },
+        {
           rel: 'icon',
           type: 'image/svg+xml',
           href: '/favicon.svg',
