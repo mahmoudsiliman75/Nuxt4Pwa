@@ -1,0 +1,186 @@
+/***** Tailwind & Framework *****/
+@import 'tailwindcss';
+@import '@nuxt/ui';
+
+:root {
+  /* Define Custom Brand Color */
+  --brand-basic: #016b53;
+  --brand-dark: #034638;
+  --brand-light-1: #00b37f;
+  --brand-light-2: #b3ffe9;
+  --brand-light-3: #e5fff8;
+  --brand-light-4: #eff6f1;
+  --brand-secondary-basic: #f09605;
+  --brand-secondary-dark: #a46b0e;
+  --brand-secondary-light-1: #f1b85b;
+  --brand-secondary-light-2: #f5cc8a;
+  --brand-secondary-light-3: #fdf5e8;
+
+  /* Black & Gray Colors */
+  --custom-black-50: #e8e8e9;
+  --custom-black: #001a12;
+  --custom-gray-100: #f2f2f2;
+  --custom-gray-200: #d9d9d9;
+  --custom-gray-300: #bfbfbf;
+  --custom-gray-400: #a6a6a6;
+  --custom-gray-500: #737373;
+
+  /* Override Nuxt Ui Colors Variables */
+  --ui-info: #3b82f6;
+  --ui-success: #47b881;
+  --ui-warning: #ffad0d;
+  --ui-error: #f64c4c;
+  --ui-brand-basic: var(--brand-basic); /* Custom Color */
+  --ui-brand-dark: var(--brand-dark); /* Custom Color */
+  --ui-brand-light-1: var(--brand-light-1); /* Custom Color */
+  --ui-brand-light-2: var(--brand-light-2); /* Custom Color */
+  --ui-brand-light-4: var(--brand-light-4); /* Custom Color */
+  --ui-brand-light-4: var(--brand-light-4); /* Custom Color */
+  --ui-brand-secondary-basic: var(--brand-secondary-basic); /* Custom Color */
+  --ui-brand-secondary-dark: var(--brand-secondary-dark); /* Custom Color */
+  --ui-brand-secondary-light-1: var(--brand-secondary-light-1); /* Custom Color */
+  --ui-brand-secondary-light-2: var(--brand-secondary-light-2); /* Custom Color */
+  --ui-brand-secondary-light-3: var(--brand-secondary-light-3); /* Custom Color */
+  --ui-custom-black-50: var(--custom-black-50); /* Custom Color */
+  --ui-custom-black: var(--custom-black); /* Custom Color */
+  --ui-custom-gray-100: var(--custom-gray-100); /* Custom Color */
+  --ui-custom-gray-200: var(--custom-gray-200); /* Custom Color */
+  --ui-custom-gray-300: var(--custom-gray-300); /* Custom Color */
+  --ui-custom-gray-400: var(--custom-gray-400); /* Custom Color */
+  --ui-custom-gray-500: var(--custom-gray-500); /* Custom Color */
+
+  /* Override Nuxt Ui Variables */
+  --ui-container: 88rem;
+}
+/* .dark {
+  --ui-brand: var(--brand-dark-400);
+} */
+
+/***** Make Custom Design Tokens Available As Tailwind Classes *****/
+@theme static {
+  --color-brand-basic: var(--brand-basic);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-light-1: var(--brand-light-1);
+  --color-brand-light-2: var(--brand-light-2);
+  --color-brand-light-3: var(--brand-light-3);
+  --color-brand-light-4: var(--brand-light-4);
+
+  --color-secondary-basic: var(--secondary-basic);
+  --color-secondary-dark: var(--secondary-dark);
+  --color-secondary-light-1: var(--secondary-light-1);
+  --color-secondary-light-2: var(--secondary-light-2);
+  --color-secondary-light-3: var(--secondary-light-3);
+
+  --color-custom-black-50: var(--custom-black-50);
+  --color-custom-black: var(--custom-black);
+  --color-custom-gray-100: var(--custom-gray-100);
+  --color-custom-gray-200: var(--custom-gray-200);
+  --color-custom-gray-300: var(--custom-gray-300);
+  --color-custom-gray-400: var(--custom-gray-400);
+  --color-custom-gray-500: var(--custom-gray-500);
+
+  --font-custom-light: 'NeoSansArabic Light', sans-serif;
+  --font-custom-normal: 'NeoSansArabic Regular', sans-serif;
+  --font-custom-medium: 'NeoSansArabic Medium', sans-serif;
+  --font-custom-bold: 'NeoSansArabic Bold', sans-serif;
+
+  --breakpoint-lg: 64.5rem;
+
+  --gradient-1: to top, #84bd00, #006a52;
+  /* --bg-gradient-2: 110deg, #77BABB, #6EACB2, #67A1AA, #5A8E9E, #4F7C93, #538296, #4C778F, #436A87, #3F6383, #2A446F; */
+
+  /* custom tailwind animations */
+  --animate-slide-right: slide_right 1s ease-in-out;
+  @keyframes slide_right {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  --animate-slide-left: slide_left 1s ease-in-out;
+  @keyframes slide_left {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+/***** Global Styles *****/
+@layer base {
+  /* Remove the background color when autocomplete is active */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+    -webkit-text-fill-color: inherit !important;
+    transition: background-color 5000s ease-in-out 0s;
+    background-color: transparent !important;
+  }
+
+  /* Remove the yellow background in Chrome/Safari */
+  input:-webkit-autofill {
+    background-color: transparent !important;
+  }
+
+  html {
+    @apply font-custom-normal;
+    overflow-x: hidden;
+  }
+
+  * {
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+      @apply w-1.5 h-1.5;
+    }
+
+    &::-webkit-scrollbar-track {
+      @apply bg-transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @apply bg-brand-basic rounded-2xl;
+    }
+
+    &::selection {
+      @apply bg-brand-basic text-white;
+    }
+  }
+}
+
+/***** Custom Animations *****/
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s linear;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  filter: blur(0.2rem);
+}
+
+.slideLeft-enter-active,
+.slideLeft-leave-active {
+  transition: transform 0.5s linear;
+}
+
+.slideLeft-enter-from,
+.slideLeft-leave-to {
+  transform: translateX(100%);
+}
+
+.slideRight-enter-active,
+.slideRight-leave-active {
+  transition: transform 0.5s linear;
+}
+
+.slideRight-enter-from,
+.slideRight-leave-to {
+  transform: translateX(-100%);
+}
