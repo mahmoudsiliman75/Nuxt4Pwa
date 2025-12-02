@@ -135,7 +135,9 @@ export default defineNuxtConfig({
   },
 
   pwa: {
-    strategies: 'generateSW',
+    strategies: 'injectManifest',
+    srcDir: 'service-worker',
+    filename: 'sw.ts',
     registerType: 'autoUpdate',
     manifest: {
       name: 'Nuxt PWA',
@@ -213,6 +215,9 @@ export default defineNuxtConfig({
           },
         },
       }]
+    },
+    injectManifest: {
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
     },
     client: {
       installPrompt: true,
