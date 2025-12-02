@@ -56,7 +56,7 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!manifest\\.webmanifest|sw\\.js|workbox-.*\\.js|_nuxt/.*|icon-.*\\.png|favicon\\.*|assets/.*).*)",
       "destination": "/index.html"
     }
   ]
