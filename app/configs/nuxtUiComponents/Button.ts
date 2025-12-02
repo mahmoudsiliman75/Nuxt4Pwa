@@ -13,7 +13,7 @@ export const ButtonUIConfig = {
     {
       color: 'brand',
       variant: 'solid',
-      class: 'bg-[url("@/public/media/shapes/btn_bg_lg.png")] bg-cover bg-no-repeat'
+      // class: 'bg-[url("@/public/media/shapes/btn_bg_lg.png")] bg-cover bg-no-repeat'
     },
     {
       color: 'secondary',
