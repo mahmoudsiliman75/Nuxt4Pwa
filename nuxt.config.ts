@@ -135,10 +135,10 @@ export default defineNuxtConfig({
   },
 
   pwa: {
-    strategies: 'injectManifest',
-    srcDir: 'service-worker',
-    filename: 'sw.ts',
-    registerType: 'autoUpdate',
+    // strategies: 'injectManifest',
+    // srcDir: 'service-worker',
+    // filename: 'sw.ts',
+    // registerType: 'autoUpdate',
     manifest: {
       name: 'Nuxt PWA',
       short_name: 'NuxtPWA',
