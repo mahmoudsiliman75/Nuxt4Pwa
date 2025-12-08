@@ -194,25 +194,38 @@ export default defineNuxtConfig({
     workbox: {
       navigateFallback: '/',
       globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
-      runtimeCaching: [{
-        urlPattern: ({ url }) => {
-          return url.pathname.includes('/api')
-        },
-        handler: 'CacheFirst' as const,
-        options: {
-          cacheName: 'api-cache',
-          cacheableResponse: {
-            statuses: [0, 200],
+      runtimeCaching: [
+        {
+          urlPattern: ({ url }) => {
+            return url.pathname.includes('/api')
           },
-          expiration: {
-            maxEntries: 100,
-            maxAgeSeconds: 60 * 60 * 24,
+          handler: 'CacheFirst' as const,
+          options: {
+            cacheName: 'NUXT-PWA-APP-API-CACHE',
+            cacheableResponse: {
+              statuses: [0, 200],
+            },
+            expiration: {
+              maxEntries: 100,
+              maxAgeSeconds: 60 * 60 * 24,
+            },
           },
         },
-      }]
+        {
+          urlPattern: /\.(?:png|jpg|jpeg|svg|gif)$/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'NUXT-PWA-APP-IMAGE-CACHE',
+            expiration: {
+              maxEntries: 100,
+              maxAgeSeconds: 7 * 24 * 60 * 60,
+            },
+          },
+        },
+      ]
     },
     injectManifest: {
-      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}']
     },
     client: {
       installPrompt: true,

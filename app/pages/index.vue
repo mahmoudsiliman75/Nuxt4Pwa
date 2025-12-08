@@ -30,6 +30,7 @@ const pwa = usePWA()
     <ClientOnly>
       <details
         dir="ltr"
+        open
         class="max-w-2xl mx-auto mt-8 p-4 bg-gray-100 rounded-lg"
       >
         <summary class="cursor-pointer font-semibold text-gray-700">

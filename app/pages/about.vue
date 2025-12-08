@@ -13,6 +13,6 @@
       </li>
     </ul>
 
-    <h1>ABOUT</h1>
+    <h1>ABOUT PAGE</h1>
   </div>
 </template>
